@@ -196,3 +196,30 @@ Txn 1 ↔ Txn 2
 * Question: Should changes done at a certain point in Txn 1 be visible to Txn 2 before Txn 1 commits?
 
 Remember: You pick relational databases for relations and ACID.
+
+### Isolation Levels
+
+Relational databases provide ACID guarantees; and the *I* in ACID is 'Isolation', and isolation levels help us tune it.
+
+![Isolation Levels](./diagrams/05.png)
+
+Isolation levels dictate how much one transaction knows about the other. We will look at each with examples:
+
+1. Repeatable Reads
+    * Consistent reads within the same transaction.
+    * Even if another transaction commits, the first transaction will not see the changes (if value already read).
+
+2. Read Committed
+    * Reads within the same transaction always read fresh value.
+    * Con: Multiple reads within the same transaction can be inconsistent.
+
+3. Read Uncommitted
+    * Reads even uncommitted values from other transactions.
+    * Known as a "dirty read".
+
+4.  Serializable (depends on engine)
+    * Every read is a locking read.
+    * While one transaction reads, others will have to wait.
+
+
+> Storage engines can alter the implementation so read documentation before you alter settings.
