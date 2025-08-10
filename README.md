@@ -23,3 +23,20 @@ Set of requirements
 System design is hence relevant for literally everyone
 
 ![System Design Flow](./diagrams/01.svg)
+
+
+## Side Effects of System Design
+
+- It makes everything else uninteresting
+- You solve **real problems**, not something made up
+- Break down problem statement systematically
+- Rewires your brain to think in a **structured way**
+- By considering all positive cases to deliver a great user experience
+
+## What will we do when we design a system?
+
+- Break down problem statement into solvable subproblems
+- Decide on key components and requirements
+- Decide on boundaries of each component
+- Touch upon key challenges in scaling it
+- Make our architecture **fault tolerant** and **available**
