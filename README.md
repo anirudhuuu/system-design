@@ -115,3 +115,11 @@ Here are some pointers that will help you:
 * Scaling and fault tolerance
 * Async processing (Delegation)
 * Communication
+
+4. Each component (in isolation) is:
+
+* Scalable → Horizontally scalable
+* Fault tolerant → Plan for recovery in case of a failure → to a stable state (*mostly data*)
+* Available → Component functions even when some component *fails*
+
+> This is precisely how we would tackle every single system — **structured and detailed**.
