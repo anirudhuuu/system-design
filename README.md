@@ -22,9 +22,6 @@ Set of requirements
 **Conclusion:**
 System design is hence relevant for literally everyone
 
-![System Design Flow](./diagrams/01.svg)
-
-
 ## Side Effects of System Design
 
 - It makes everything else uninteresting
@@ -68,4 +65,27 @@ System Design is **extremely practical** and there is a **structured way** to ta
 * Feed
 * Gamification
 
-![Facebook](./diagrams/02.svg)
+![Facebook](./diagrams/01.png)
+
+3. **Dissect each component (if required)**
+
+   Example: *Feed* might have – generator, aggregator, web server
+
+![Dissect system](./diagrams/02.png)
+
+4. **For each sub-component look into:**
+* Database and caching
+* Scaling & fault tolerance
+* Async processing (Delegation)
+* Communication
+
+Repeat for each sub-component one-by-one
+
+5. **And more sub-components look into:**
+
+* Understand the scope
+* Decide how other components will talk with this resource
+* Decide on 4 above factors for this new component
+* Repeat
+
+![Approach of system design](./diagrams/03.png)
