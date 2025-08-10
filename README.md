@@ -153,3 +153,32 @@ Because of these reasons, relational databases provide "Transactions".
 * **C** – Consistency
 * **I** – Isolation
 * **D** – Durability
+
+### Atomicity
+
+All statements within a transaction takes effect or none.
+
+Example:
+
+1. Start transaction
+2. Publish a post and increase total posts count
+   - `insert into posts values (...);`
+   - `update stats set total_posts = total_posts + 1 where user_id = 100;`
+3. Commit
+
+### Consistency
+
+Data will never go incorrect, no matter what. Using these mechanisms:
+* Constraints
+* Cascades
+* Triggers
+
+Example: Foreign key checks do not allow you to delete parent if child exists.
+
+* You have the necessary tools to ensure that data never goes inconsistent.
+
+Example: `total_posts = total entries in posts table for user`
+
+### Durability
+
+When a transaction commits, the changes outlive outages.
