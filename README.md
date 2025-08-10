@@ -123,3 +123,33 @@ Here are some pointers that will help you:
 * Available → Component functions even when some component *fails*
 
 > This is precisely how we would tackle every single system — **structured and detailed**.
+
+# Relational Databases
+
+Databases are the most critical component of any system — they can make or break a system.
+
+Data is stored & represented in rows and columns.
+
+## History of relational databases
+
+* Computers → Internet → Blockchain
+* Everything revolutionary starts with Financial Applications
+* Computers first did "accounting" → ledgers → rows & columns
+* Databases were developed to support accounting
+
+## Key properties
+
+1. Data consistency
+2. Data durability
+3. Data integrity
+4. Constraints
+5. Everything in one place
+
+Because of these reasons, relational databases provide "Transactions".
+
+## ACID
+
+* **A** – Atomicity
+* **C** – Consistency
+* **I** – Isolation
+* **D** – Durability
