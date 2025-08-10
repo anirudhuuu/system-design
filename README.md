@@ -101,3 +101,17 @@ Here are some pointers that will help you:
 ![Break into components](./diagrams/02.png)
 
 2. Every component has a clear set of responsibilities → exclusive
+
+* Feed Server → Serves feed over HTTP
+* Feed Generator → Pulls data from multiple services and puts them in DB
+  - Candidate feed items
+  - posts, friends, recommendations
+* Feed Aggregator → Combines candidate items fetched by generator.
+  - Filters out redundant, ranks, and creates a final consumable feed
+
+3. For each component you have slight technical details figured out:
+
+* Database and caching
+* Scaling and fault tolerance
+* Async processing (Delegation)
+* Communication
