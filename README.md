@@ -40,3 +40,32 @@ System design is hence relevant for literally everyone
 - Decide on boundaries of each component
 - Touch upon key challenges in scaling it
 - Make our architecture **fault tolerant** and **available**
+
+
+## How to approach System Design?
+
+System Design is **extremely practical** and there is a **structured way** to take the situation.
+
+**Take baby steps, no matter what!**
+
+1. **Understand the problem statement**
+   
+   Without having a thorough understanding of the problem at hand, we would easily digress.
+
+2. **Break it down into components** *(essential)*
+
+**Note:** To start with,
+
+* Do **not** create components for the sake of it.
+* Create components that you know are **must-have**.
+
+**Example:** *Design Facebook*
+
+**Components / Features:** when problem statement is too big
+
+* Auth
+* Notification
+* Feed
+* Gamification
+
+![Facebook](./diagrams/02.svg)
