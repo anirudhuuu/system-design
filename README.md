@@ -182,3 +182,17 @@ Example: `total_posts = total entries in posts table for user`
 ### Durability
 
 When a transaction commits, the changes outlive outages.
+
+### Isolation
+
+When multiple transactions are executing in parallel, the isolation level determines how much changes of one transaction are visible to the other.
+
+Example:
+
+![Isolation](./diagrams/04.png)
+
+Txn 1 ↔ Txn 2
+
+* Question: Should changes done at a certain point in Txn 1 be visible to Txn 2 before Txn 1 commits?
+
+Remember: You pick relational databases for relations and ACID.
