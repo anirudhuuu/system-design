@@ -89,3 +89,15 @@ Repeat for each sub-component one-by-one
 * Repeat
 
 ![Approach of system design](./diagrams/03.png)
+
+## How do you know that you have built a good system?
+
+Every system is "infinitely buildable", and hence knowing when to stop the evolution is important.
+
+Here are some pointers that will help you:
+
+1. You are able to brake your system into components
+
+![Break into components](./diagrams/02.png)
+
+2. Every component has a clear set of responsibilities → exclusive
