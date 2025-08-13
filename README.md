@@ -268,3 +268,17 @@ Changes on one database (Master) need to be sent to Replica to maintain consiste
     - Faster writes
 
 ![Asynchronous Replication](./diagrams/10.png)
+
+### Horizontal Scaling: Sharding
+
+Because one node cannot handle all the data/load we split the data into multiple exclusive subsets. Writes on a particular row/document will go to one particular shard. This way, we scale our overall database load
+
+![Sharding](./diagrams/11.png)
+
+**Note:**
+
+* Shards are independent
+* No replication between them
+* API server needs to know whom to connect to, to get things done
+* Some databases has a proxy that takes care of routing
+* Each shard can have its own replica (if needed)
