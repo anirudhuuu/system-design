@@ -282,3 +282,74 @@ Because one node cannot handle all the data/load we split the data into multiple
 * API server needs to know whom to connect to, to get things done
 * Some databases has a proxy that takes care of routing
 * Each shard can have its own replica (if needed)
+
+## Sharding and Partitioning
+
+- **Sharing**: Method of distributing data across multiple machines.
+- **Partitioning**: Splitting a subset of data within the same instance.
+
+### How a Database is Scaled?
+
+A database server is just a database process (mysqld, mongod) running on an EC2 machine.
+
+![How a Database is Scaled?](./diagrams/12.png)
+
+You put your database in production, serving real traffic.
+
+![To Scale a Database](./diagrams/13.png)
+
+You are getting more users, that your DB is unable to manage. You scale up your DB... giving it more CPU, RAM and Disk. That makes a bulkier server + read replicas.
+
+![To Scale a Database](./diagrams/14.png)
+
+Your product went viral and your bulky database is unable to handle the load, so you scale up again.
+
+![To Scale a Database](./diagrams/15.png)
+
+BUT, after a certain stage you know you would not be able to scale "up" your DB because **vertically scaling has limit**.
+
+So, you will have to resort to Horizontal Scaling.
+
+Say, one DB server was handling 1000 WPS and we cannot scale up beyond that but we are getting 15000 WPS, we scale horizontally and _split_ the data.
+
+![To Scale a Database](./diagrams/16.png)
+
+By adding one more database server, we reduced the load to 750 WPS on each node and thus handled higher throughput.
+
+![To Scale a Database](./diagrams/16.png)
+
+Each database server is thus a **shard** and we say that the database is **partitioned**.
+
+Overall, a database is sharded while the data is partitioned.
+
+![Partitioning](./diagrams/17.png)
+
+You partitioned the 100GB of total data into 5 mutually exclusive partitions. Each of these partitions can either live on one database server or a couple of them can share one server. And this depends on the No. of **shards** you have.
+
+![Sharding and Partitioning](./diagrams/18.png)
+
+5 partitions of our 100GB dataset is distributed across 2 shards.
+
+#### How to partition the data?
+There are two categories of partitioning:
+
+1. Horizontal Partitioning
+2. Vertical Partitioning
+
+When we "split" the 100GB data, we could have used either of the ways but deciding which one to pick depends on **load, usecase and access patterns**.
+|              | Partitioning |        |        |
+|--------------|:------------:|--------|--------|
+| Sharding     |              | No     | Yes    |
+|              | No           | ![Horizontal Partitioning](./diagrams/19.png) | ![Vertical Partitioning](./diagrams/20.png) |
+|              | Yes          | ![Horizontal Partitioning](./diagrams/21.png) | ![Vertical Partitioning](./diagrams/22.png) |
+
+#### Advantages of sharding
+
+* Handle large Reads and Writes
+* Increase overall storage capacity
+* Higher availability
+
+#### Disadvantages of sharding
+
+* Operationally complex
+* Cross-shard queries are expensive
