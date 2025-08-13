@@ -38,7 +38,6 @@ System design is hence relevant for literally everyone
 - Touch upon key challenges in scaling it
 - Make our architecture **fault tolerant** and **available**
 
-
 ## How to approach System Design?
 
 System Design is **extremely practical** and there is a **structured way** to take the situation.
@@ -147,7 +146,7 @@ Data is stored & represented in rows and columns.
 
 Because of these reasons, relational databases provide "Transactions".
 
-## ACID
+# ACID
 
 * **A** – Atomicity
 * **C** – Consistency
@@ -223,3 +222,27 @@ Isolation levels dictate how much one transaction knows about the other. We will
 
 
 > Storage engines can alter the implementation so read documentation before you alter settings.
+
+# Scaling Databases
+
+Databases are the most important component of any system out there. It makes or breaks your system. Hence, it is critical to understand how to scale them. *(Read your DB documentation.)*
+
+These techniques are applicable to most databases out there. (for both *relational* and *non-relational*).
+
+### Vertical Scaling
+
+- Add more CPU, RAM, Disk to the database
+- Requires downtime during reboot
+- Gives ability to handle “scale” (more load)
+- Has a physical hardware limitation
+
+![Vertical Scaling](./diagrams/06.png)
+
+### Horizontal Scaling: Read Replicas
+
+- Useful when read : write = 90 : 10
+- Move reads to other database so that master is free to do writes
+- API servers should know which DB to connect to for each operation
+- Replication can be sync or async
+
+![Horizontal Scaling: Read Replicas](./diagrams/07.png)
