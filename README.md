@@ -353,3 +353,56 @@ When we "split" the 100GB data, we could have used either of the ways but decidi
 
 * Operationally complex
 * Cross-shard queries are expensive
+
+## Non-Relational Databases
+
+It is a very broad generalization of databases that are non-relational (unlike MySQL, PostgreSQL, etc.)
+
+But this does not mean all non-relational databases are similar.
+
+### What makes Non-Relational Databases interesting?
+
+Most non-relational databases are **shard** out-of-the-box! That means you get horizontal scaling for free.
+
+We talk about 3 most important types of NoSQL databases:
+
+1. Document DBs (MongoDB, Elasticsearch)
+- Mostly JSON based
+- Supports complex queries [almost like relational sql databases]
+- Partial updates to documents is possible [can do `total_posts += 1` without re-writing the entire document]
+```json
+{
+    "user_id": ___,
+    "total_posts": 270,
+}
+```
+
+- Closest to relational databases
+- Best used for in-app notification service, catalog service
+
+2. Key-Value Stores (Redis, DynamoDB, Aerospike)
+- Extremely simple databases
+
+```
+GET(k)
+PUT(k, v)
+DEL(k)
+```
+
+- Limited functionalities (GET, PUT, DEL)
+- Meant for key-based access patterns
+- Does not support complex queries (aggregations)
+- Can be heavily sharded and partitioned
+- Best used for: profile data, order data, auth data, messages [most of the usecases], etc.
+
+You can use relational databases and document DBs as KV stores.
+
+3. Graph Databases (Neo4j, Neptune, Dgraph)
+- What if our graph datastructure had a database?
+- It stores data that are represented as nodes, edges and relations
+
+eg. A --follows-> B
+eg. Anirudh --Bought-> iPad
+
+- Great for running complex graph algorithms
+- Powerful to model social networks, recommendation & fraud detection
