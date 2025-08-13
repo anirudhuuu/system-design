@@ -246,3 +246,25 @@ These techniques are applicable to most databases out there. (for both *relation
 - Replication can be sync or async
 
 ![Horizontal Scaling: Read Replicas](./diagrams/07.png)
+
+### Replication
+
+Changes on one database (Master) need to be sent to Replica to maintain consistency.
+
+![Replication](./diagrams/08.png)
+
+#### Two modes of replication:
+
+1. Synchronous Replication
+    - Strong consistency
+    - Zero replication lag
+    - Slower writes
+
+![Synchronous Replication](./diagrams/09.png)
+
+2. Asynchronous Replication
+    - Eventual consistency
+    - Some replication lag
+    - Faster writes
+
+![Asynchronous Replication](./diagrams/10.png)
